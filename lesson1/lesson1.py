@@ -5,13 +5,13 @@
 import re
 from bs4 import BeautifulSoup
 
-with open("blank/index.html") as file:
+with open("lesson1/blank/index2.html", encoding="utf-8") as file:
     src = file.read()
 # print(src)
 
 soup = BeautifulSoup(src, "lxml")
 
-# title = soup.title
+title = soup.title
 # print(title)
 # print(title.text)
 # print(title.string)
@@ -22,7 +22,7 @@ soup = BeautifulSoup(src, "lxml")
 #
 # page_all_h1 = soup.find_all("h1")
 # print(page_all_h1)
-#
+
 # for item in page_all_h1:
 #     print(item.text)
 
@@ -49,7 +49,7 @@ soup = BeautifulSoup(src, "lxml")
 
 # all_a = soup.find_all("a")
 # print(all_a)
-#
+# #
 # for item in all_a:
 #     item_text = item.text
 #     item_url = item.get("href")
@@ -84,21 +84,21 @@ soup = BeautifulSoup(src, "lxml")
 # print(post_title)
 
 links = soup.find(class_="some__links").find_all("a")
-# print(links)
+print(links)
 #
 # for link in links:
 #     link_href_attr = link.get("href")
 #     link_href_attr1 = link["href"]
-#
+# #
 #     link_data_attr = link.get("data-attr")
 #     link_data_attr1 = link["data-attr"]
-#
+# #
 #     print(link_href_attr1)
 #     print(link_data_attr1)
 
 # find_a_by_text = soup.find("a", text="Одежда")
 # print(find_a_by_text)
-#
+# #
 # find_a_by_text = soup.find("a", text="Одежда для взрослых")
 # print(find_a_by_text)
 
