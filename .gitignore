@@ -2,3 +2,4 @@
 venv/
 *.pyc
 .vscode/
+lesson2/data/
