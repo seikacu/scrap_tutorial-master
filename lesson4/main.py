@@ -52,11 +52,15 @@ for url in fests_urls_list:
         soup = BeautifulSoup(req.text, "lxml")
         fest_info_block = soup.find("div", class_="MuiContainer-root")
         fest_info_block2 = soup.find("div", class_="MuiPaper-root")
-        date_list = fest_info_block2.find("div", class_= "MuiGrid-item").find_all("span")
-
+        fest_info_block2_list = fest_info_block2.find_all("span")
+               
         fest_name = fest_info_block.find("h1").text.strip()
-        fest_date = date_list[0].text.strip() + ', ' + date_list[1].text.strip()
-        
+        fest_date = fest_info_block2_list[0].text.strip() + ', ' + fest_info_block2_list[1].text.strip()
+        location = fest_info_block2_list[2].text.strip()
+        print(fest_name)
+        print(fest_date)
+        print(location)
+        print("#" * 20)
         
 #         fest_location_url = "https://www.skiddle.com" + fest_info_block.find("a", class_="tc-white").get("href")
 
