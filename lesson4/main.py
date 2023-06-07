@@ -14,8 +14,8 @@ headers = {
 
 # collect all fests URLs
 fests_urls_list = []
-# for i in range(0, 216, 24):
-for i in range(0, 24, 24):
+for i in range(0, 216, 24):
+# for i in range(0, 24, 24):
     url = f"https://www.skiddle.com/festivals/search/?ajaxing=1&sort=0&fest_name=&from_date=&to_date=&where[]=2&where[]=3&where[]=4&maxprice=500&o={i}&bannertitle=June"
     # print(url)
     
@@ -39,12 +39,12 @@ for i in range(0, 24, 24):
 # print(fests_urls_list)
 
 # # collect fest info
-# count = 0
-# fest_list_result = []
+count = 0
+fest_list_result = []
 for url in fests_urls_list:
-#     count += 1
-#     print(count)
-#     print(url)
+    count += 1
+    print(count)
+    print(fest_url[0])
 
     req = requests.get(url=url, headers=headers)
 
@@ -57,10 +57,10 @@ for url in fests_urls_list:
         fest_name = fest_info_block.find("h1").text.strip()
         fest_date = fest_info_block2_list[0].text.strip() + ', ' + fest_info_block2_list[1].text.strip()
         location = fest_info_block2_list[2].text.strip()
-        print(fest_name)
-        print(fest_date)
-        print(location)
-        print("#" * 20)
+        # print(fest_name)
+        # print(fest_date)
+        # print(location)
+        # print("#" * 20)
         
 #         fest_location_url = "https://www.skiddle.com" + fest_info_block.find("a", class_="tc-white").get("href")
 
@@ -81,17 +81,17 @@ for url in fests_urls_list:
 #             else:
 #                 contact_details_dict[contact_detail_list[0].strip()] = contact_detail_list[1].strip()
 
-#         fest_list_result.append(
-#             {
-#                 "Fest name": fest_name,
-#                 "Fest date": fest_date,
-#                 "Contacts data": contact_details_dict
-#             }
-#         )
+        fest_list_result.append(
+            {
+                "Fest name": fest_name,
+                "Fest date": fest_date,
+                "Fest location": location
+            }
+        )
 
     except Exception as ex:
         print(ex)
         print("Damn...There was some error...")
 
-# with open("fest_list_result.json", "a", encoding="utf-8") as file:
-#     json.dump(fest_list_result, file, indent=4, ensure_ascii=False)
+with open("lesson4/fest_list_result2.json", "a", encoding="utf-8") as file:
+    json.dump(fest_list_result, file, indent=4, ensure_ascii=False)
