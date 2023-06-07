@@ -19,27 +19,27 @@ def get_data():
         req = requests.get(url=url, headers=headers)
         response = req.content
 
-        with open(f"media/{i}.jpg", "wb") as file:
+        with open(f"lesson5/media/{i}.jpg", "wb") as file:
             file.write(response)
-            img_list.append(f"media/{i}.jpg")
+            img_list.append(f"lesson5/media/{i}.jpg")
             print(f"Downloaded {i} of 48")
 
     print("#" * 20)
     print(img_list)
 
     # create PDF file
-    with open("result.pdf", "wb") as f:
+    with open("lesson5/media/result.pdf", "wb") as f:
         f.write(img2pdf.convert(img_list))
 
     print("PDF file created successfully!")
 
 
 def write_to_pdf():
-    # print(os.listdir("media"))
-    img_list = [f"media/{i}.jpg" for i in range(1, 49)]
+    # print(os.listdir("lesson5/media"))
+    img_list = [f"lesson5/media/{i}.jpg" for i in range(1, 49)]
 
     # create PDF file
-    with open("result.pdf", "wb") as f:
+    with open("lesson5/media/result2.pdf", "wb") as f:
         f.write(img2pdf.convert(img_list))
 
     print("PDF file created successfully!")
